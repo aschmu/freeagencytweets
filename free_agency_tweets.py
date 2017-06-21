@@ -15,7 +15,7 @@ with open(os.path.join(os.environ['HOME'],
 
 logger = logging.getLogger(name=__name__)
 ch = logging.StreamHandler()
-ch.setLevel(logging.ERROR)
+ch.setLevel(logging.INFO)
 fh = logging.FileHandler('./log/fatweets.log')
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
