@@ -1,3 +1,3 @@
-/log/**
+log/**/*.log
 *.pyc
-/data/**
+data/**/*.txt
