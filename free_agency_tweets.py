@@ -28,8 +28,8 @@ logger.addHandler(ch)
 
 auth = tweepy.AppAuthHandler(API_KEY, API_SECRET)
 api = tweepy.API(auth, 
-				 wait_on_rate_limit=True,
-                 wait_on_rate_limit_notify=True)
+	             wait_on_rate_limit=True,
+	             wait_on_rate_limit_notify=True)
 
 
 #search_query = '#nbafreeagency'  # this is what we're searching for
@@ -86,7 +86,7 @@ def get_tweets(search_query, max_tweets=10000, tweets_per_query=100, since_id=No
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='make a twitter search request')
 	parser.add_argument('--query', metavar='query', type=str,
-						nargs=1, help='query string (hashtag or free text)')
+		                nargs=1, help='query string (hashtag or free text)')
 	args = parser.parse_args()
 	query = args.query
 	get_tweets(search_query=query)
