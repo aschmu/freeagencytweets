@@ -7,11 +7,10 @@ import jsonpickle
 import json
 import re
 
-with open(os.path.join(os.environ['HOME'],'.twitterapi.key')) as apikey:
-	API_KEY = apikey.readline().rstrip()
 
-with open(os.path.join(os.environ['HOME'],'.twitterapi.sec')) as apisec:
-	API_SECRET = apisec.readline().rstrip()
+API_KEY = os.environ['TWITTER_KEY'].strip()
+API_SECRET = os.environ['TWITTER_SEC'].strip()
+
 
 logger = logging.getLogger(name=__name__)
 logger.setLevel(logging.INFO)
@@ -29,22 +28,6 @@ logger.addHandler(ch)
 auth = tweepy.AppAuthHandler(API_KEY, API_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, 
 	wait_on_rate_limit_notify=True)
-
-
-#search_query = '#nbafreeagency'  # this is what we're searching for
-#max_tweets = 1000 # Some arbitrary large number
-#tweets_per_query = 100  # this is the max the API permits
-#outfile = './data/tweets/freeagency_tweets.txt' # We'll store the tweets in a text file.
-
-
-# If results from a specific ID onwards are reqd, set since_id to that ID.
-# else default to no lower limit, go as far back as API allows
-#since_id = None
-
-# If results only below a specific ID are, set max_id to that ID.
-# else default to no upper limit, start from the most recent tweet matching the search query.
-#max_id = -1L
-
 
 
 def get_tweets(search_query, outfile, max_tweets=100000, tweets_per_query=100, 
